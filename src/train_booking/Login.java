@@ -9,7 +9,7 @@ public class Login implements ActionListener {
 	JFrame f;
 	JLabel l1,l2;
 	JTextField t1;
-	JPasswordField t2;
+	JPasswordField t2;//view shows something was typed but does not show original characters
 	JButton b1,b2;
 	Main M;
 	Login()
@@ -29,7 +29,7 @@ public class Login implements ActionListener {
 	t1.setBounds(150,50,100,30);
 	t2=new JPasswordField(10);
 	t2.setForeground(Color.blue);
-	t2.setEchoChar('*');
+	t2.setEchoChar('*');//sets the echo character for this JPasswordField
 	t2.addActionListener(this);
 	t2.setBounds(150,80,100,30);
 	b1=new JButton("Ok");
@@ -44,12 +44,12 @@ public class Login implements ActionListener {
 	b1.setMnemonic('O');
 	b2.setMnemonic('C');
 
-	f.getContentPane().add(l1);
-	f.getContentPane().add(l2);
-	f.getContentPane().add(t1);
-	f.getContentPane().add(t2);
-	f.getContentPane().add(b1);
-	f.getContentPane().add(b2);
+	f.add(l1);
+	f.add(l2);
+	f.add(t1);
+	f.add(t2);
+	f.add(b1);
+	f.add(b2);
 	f.setBounds(300,300,300,200);
 	f.setResizable(false);
 	f.setVisible(true);
@@ -58,11 +58,11 @@ public class Login implements ActionListener {
 	{
 	if(e.getSource()==b1)
 	{
-	if(t1.getText().length()==0||t2.getText().length()==0)
+	if(t1.getText().length()==0||t2.getPassword().length==0)//change from length() to length
 	{
-	JOptionPane.showMessageDialog(null,"Fields are empty");
+	JOptionPane.showMessageDialog(null,"Fields are empty");//pop up user prompt
 	}
-	else if(t1.getText().equals("dush") && t2.getText().equals("1234"))
+	else if(t1.getText().equals("dush") && t2.getPassword().equals("1234"))
 	{
 	f.setVisible(false);
 	M=new Main();
