@@ -28,7 +28,7 @@ public class Passenger extends Connect implements ActionListener{
 	imgL.setBounds(0,400,400,200);
 	f=new JFrame("Passenger");
 	f.getContentPane().setLayout(null);
-	f.getContentPane().setBackground(Color.green);
+	f.getContentPane().setBackground(Color.lightGray);
 	l1=new JLabel("PId");
 	l1.setBounds(50,50,100,30);
 	t1=new JTextField(10);
@@ -47,18 +47,18 @@ public class Passenger extends Connect implements ActionListener{
 	ta.setBounds(150,170,130,70);
 	l5=new JLabel("Address");
 	l5.setBounds(50,170,100,30);
-	l6=new JLabel("Catagory");
+	l6=new JLabel("Category");
 	l6.setBounds(50,240,100,30);
 	b1=new JButton("More");
-	b1.setBackground(Color.yellow);
+	b1.setBackground(Color.white);
 	b1.addActionListener(this);
 	b1.setBounds(50,330,100,30);
 	b2=new JButton("Save");
-	b2.setBackground(Color.yellow);
+	b2.setBackground(Color.white);
 	b2.addActionListener(this);
 	b2.setBounds(170,330,100,30);
 	b3=new JButton("Back");
-	b3.setBackground(Color.yellow);
+	b3.setBackground(Color.white);
 	b3.addActionListener(this);
 	b3.setBounds(290,330,100,30);
 
@@ -96,7 +96,7 @@ public class Passenger extends Connect implements ActionListener{
 	f.getContentPane().add(c4);
 	f.getContentPane().add(c5);
 	f.getContentPane().add(imgL);
-	f.setSize(1300,1000);
+	f.setSize(600,500);
 	f.setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e)
@@ -107,7 +107,7 @@ public class Passenger extends Connect implements ActionListener{
 	{
 	//saving existing record
 	String cat="";
-	ps=con.prepareStatement("insert into TempPassenger values(?,?,?,?,?,?,?)");
+	ps=con.prepareStatement("insert into Passenger values(?,?,?,?,?,?,?)");
 	ps.setString(1,t1.getText());
 	ps.setString(2,t2.getText());
 	ps.setString(3,t3.getText());
@@ -127,13 +127,13 @@ public class Passenger extends Connect implements ActionListener{
 	//opening new form
 	Passenger P=new Passenger(pno);
 	st=con.createStatement();
-	rs=st.executeQuery("select * from PassengerID");
+	rs=st.executeQuery("select * from Passenger");
 	rs.next();
 	int x=rs.getInt(1);
 	P.t1.setText(String.valueOf(x));
 	st.close();
 	//update passenger id
-	ps=con.prepareStatement("update PassengerID set PID=? where PID=?");
+	ps=con.prepareStatement("update Passenger set Passenger_ID=? where Passenger_ID=?");//edit Passenger_ID
 	ps.setInt(1,(x+1));
 	ps.setInt(2,x);
 	ps.executeUpdate();
@@ -150,7 +150,7 @@ public class Passenger extends Connect implements ActionListener{
 	try
 	{
 	String cat="";
-	ps=con.prepareStatement("insert into TempPassenger values(?,?,?,?,?,?,?)");
+	ps=con.prepareStatement("insert into Passenger values(?,?,?,?,?,?,?)");
 	ps.setString(1,t1.getText());
 	ps.setString(2,t2.getText());
 	ps.setString(3,t3.getText());
@@ -168,7 +168,7 @@ public class Passenger extends Connect implements ActionListener{
 	ps.close();
 
 	st=con.createStatement();
-	rs=st.executeQuery("select * from TempPassenger");
+	rs=st.executeQuery("select * from Passenger");
 	while(rs.next())
 	{
 	ps=con.prepareStatement("insert into Passenger values(?,?,?,?,?,?,?)");
@@ -183,7 +183,7 @@ public class Passenger extends Connect implements ActionListener{
 	ps.close();
 	}
 	st=con.createStatement();
-	st.executeUpdate("delete from TempPassenger");
+	st.executeUpdate("delete from Passenger");
 	JOptionPane.showMessageDialog(null,"Record Saved");
 	b2.setEnabled(false);
 	b1.setEnabled(false);
