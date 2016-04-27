@@ -15,12 +15,12 @@ public class Main implements ActionListener {
 	ImageIcon img;
 	Main()
 	{
-	img=new ImageIcon("Indian-Railway-Network.jpg");
+	img=new ImageIcon("logo_krc.png");
 	imgL=new JLabel(img);
 	imgL.setBounds(0,0,1300,1000);
 	f=new JFrame("Main");
 	f.getContentPane().setLayout(null);
-	f.getContentPane().setBackground(Color.green);
+	f.getContentPane().setBackground(Color.lightGray);
 	b1=new JButton("Reservation Form");
 	b1.addActionListener(this);
 	b1.setBounds(150,390,210,60);
@@ -48,12 +48,12 @@ public class Main implements ActionListener {
 	b3.setMnemonic('C');
 	b4.setMnemonic('E');
 
-	f.getContentPane().add(b1);
-	f.getContentPane().add(b2);
-	f.getContentPane().add(b3);
-	f.getContentPane().add(b4);
-	f.getContentPane().add(imgL);
-	f.setSize(1300,1000);
+	f.add(b1);
+	f.add(b2);
+	f.add(b3);
+	f.add(b4);
+	f.add(imgL);
+	f.setSize(800,600);
 	f.setVisible(true);
 	}
 	public void actionPerformed(ActionEvent e)
