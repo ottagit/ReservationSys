@@ -16,12 +16,12 @@ public class Login implements ActionListener {
 	{
 	f=new JFrame("Login");
 	f.setLayout(null);
-	f.setBackground(Color.cyan);
+	f.setBackground(Color.GRAY);
 	l1=new JLabel("User Name");
-	l1.setForeground(Color.yellow);
+	l1.setForeground(Color.black);
 	l1.setBounds(50,50,100,30);
 	l2=new JLabel("Password");
-	l2.setForeground(Color.yellow);
+	l2.setForeground(Color.black);
 	l2.setBounds(50,80,100,30);
 	t1=new JTextField(10);
 	t1.setForeground(Color.blue);
@@ -62,7 +62,7 @@ public class Login implements ActionListener {
 	{
 	JOptionPane.showMessageDialog(null,"Fields are empty");//pop up user prompt
 	}
-	else if(t1.getText().equals("dush") && t2.getPassword().equals("1234"))
+	else if(t1.getText().equals("dush") && t2.getPassword().equals("1234"))//log
 	{
 	f.setVisible(false);
 	M=new Main();
