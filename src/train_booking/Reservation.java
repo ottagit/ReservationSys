@@ -50,7 +50,7 @@ public class Reservation extends Connect implements ActionListener, FocusListene
 		imgL.setBounds(0,320,500,250);
 		f=new JFrame("Reservation");
 		f.getContentPane().setLayout(null);
-		f.getContentPane().setBackground(Color.green);
+		f.getContentPane().setBackground(Color.lightGray);
 		l1=new JLabel("PNR No");
 		l1.setBounds(130,50,100,30);
 		l2=new JLabel("Train No");
@@ -87,15 +87,15 @@ public class Reservation extends Connect implements ActionListener, FocusListene
 		h.add("AC");
 		h.add("SL");
 		b1=new JButton("Insert");
-		b1.setBackground(Color.yellow);
+		b1.setBackground(Color.white);
 		b1.setBounds(50,270,100,30);
 		b1.addActionListener(this);
 		b2=new JButton("Next");
-		b2.setBackground(Color.yellow);
+		b2.setBackground(Color.white);
 		b2.setBounds(160,270,100,30);
 		b2.addActionListener(this);
 		b3=new JButton("Main");
-		b3.setBackground(Color.yellow);
+		b3.setBackground(Color.white);
 		b3.setBounds(270,270,100,30);
 		b3.addActionListener(this);
 
@@ -103,27 +103,27 @@ public class Reservation extends Connect implements ActionListener, FocusListene
 		b2.setMnemonic('N');
 		b3.setMnemonic('M');
 
-		f.getContentPane().add(l1);
-		f.getContentPane().add(l2);
-		f.getContentPane().add(l3);
-		f.getContentPane().add(l4);
-		f.getContentPane().add(l5);
-		f.getContentPane().add(l6);
-		f.getContentPane().add(l7);
-		f.getContentPane().add(l8);
-		f.getContentPane().add(t1);
-		f.getContentPane().add(t2);
-		f.getContentPane().add(t3);
-		f.getContentPane().add(t4);
-		f.getContentPane().add(t5);
-		f.getContentPane().add(t6);
-		f.getContentPane().add(t7);
-		f.getContentPane().add(h);
-		f.getContentPane().add(b1);
-		f.getContentPane().add(b2);
-		f.getContentPane().add(b3);
-		f.getContentPane().add(imgL);
-		f.setSize(1300,1000);
+		f.add(l1);
+		f.add(l2);
+		f.add(l3);
+		f.add(l4);
+		f.add(l5);
+		f.add(l6);
+		f.add(l7);
+		f.add(l8);
+		f.add(t1);
+		f.add(t2);
+		f.add(t3);
+		f.add(t4);
+		f.add(t5);
+		f.add(t6);
+		f.add(t7);
+		f.add(h);
+		f.add(b1);
+		f.add(b2);
+		f.add(b3);
+		f.add(imgL);
+		f.setSize(600,500);
 		f.setVisible(true);
 		disable();
 		}
@@ -208,11 +208,11 @@ public class Reservation extends Connect implements ActionListener, FocusListene
 		x=rs.getInt(1);
 		Passenger P=new Passenger(x);
 		st=con.createStatement();
-		rs=st.executeQuery("select * from PassengerID");
+		rs=st.executeQuery("select Passenger_ID from Passenger");//edit * from PassengerID
 		rs.next();
 		x=rs.getInt(1);
 		P.t1.setText(String.valueOf(x));
-		ps=con.prepareStatement("update PassengerID set PID=? where PID=?");
+		ps=con.prepareStatement("update Passenger set Passenger_ID=? where Passenger_ID=?");//edit PassengerID
 		ps.setInt(1,(x+1));
 		ps.setInt(2,x);
 		ps.executeUpdate();
