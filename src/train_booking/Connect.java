@@ -4,13 +4,22 @@ import java.sql.*;
 
 public class Connect {
 
+	String url = "jdbc:mysql://localhost:3306/Railway";
+	String user = "root";
+	String password = "";
+	
+	
 	public Connection con;
+	public Statement stt;
 	public Connect()
 	{
 	try
 	{
-	Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-	con=DriverManager.getConnection("jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=Railway.mdb;DriverID=22");
+	Class.forName("com.mysql.jdbc.Driver").newInstance();
+	con=DriverManager.getConnection(url, user, password);
+	
+	stt = con.createStatement();
+	
 	}
 	catch(Exception e1)
 	{
