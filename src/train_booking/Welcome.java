@@ -12,21 +12,21 @@ public class Welcome implements Runnable{
 	ImageIcon img;
 	Welcome()
 	{
-	img=new ImageIcon("/logo_krc.png");
+	img=new ImageIcon("/home/otta/workspace/ReservationSys/src/Logo/Logoo.png");
 	t=new Thread(this);
 	f=new JFrame("Welcome");
-	f.getContentPane().setLayout(null);
+	f.setLayout(null);
 	f.setBackground(Color.lightGray);
-	l1=new JLabel("OnLine Reservation");
-	l1.setBounds(250,300,900,50);
+	l1=new JLabel("OnLine Railway Reservation");
+	l1.setBounds(250,300,900,200);
 	l1.setFont(new Font("Courier new",Font.BOLD,30));
 	l1.setForeground(Color.red);
 	l2=new JLabel(" _By Osawa C Otta");
 	l2.setFont(new Font("Courier new",Font.BOLD,20));
-	l2.setBounds(350,380,800,40);
+	l2.setBounds(350,380,800,100);
 	l2.setForeground(Color.red);
 	l3=new JLabel(img);
-	l3.setBounds(0,0,1300,1000);
+	l3.setBounds(150,150,600,300);
 	f.add(l1);
 	f.add(l2);
 	f.add(l3);
@@ -41,7 +41,7 @@ public class Welcome implements Runnable{
 	{
 	try
 	{
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 	}
 	catch(Exception e)
 	{}

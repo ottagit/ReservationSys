@@ -2,9 +2,11 @@ package train_booking;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.SQLException;
+
 import javax.swing.*;
 
-public class Login implements ActionListener {
+public class Login extends Connect implements ActionListener {
 
 	JFrame f;
 	JLabel l1,l2;
@@ -12,6 +14,7 @@ public class Login implements ActionListener {
 	JPasswordField t2;//view shows something was typed but does not show original characters
 	JButton b1,b2;
 	Main M;
+	
 	Login()
 	{
 	f=new JFrame("Login");
@@ -54,29 +57,95 @@ public class Login implements ActionListener {
 	f.setResizable(false);
 	f.setVisible(true);
 	}
-	public void actionPerformed(ActionEvent e)
+	
+	public void actionPerformed(ActionEvent e) 
 	{
-	if(e.getSource()==b1)
-	{
-	if(t1.getText().length()==0||t2.getPassword().length==0)//change from length() to length
-	{
-	JOptionPane.showMessageDialog(null,"Fields are empty");//pop up user prompt
-	}
-	else if(t1.getText().equals("dush") && t2.getPassword().equals("1234"))//log
-	{
-	f.setVisible(false);
-	M=new Main();
-	}
-	else
-	{
-	JOptionPane.showMessageDialog(null,"Invalid User Name or Password");
-	}
-	}
-	if(e.getSource()==b2)
-	{
-	f.setVisible(false);
-	System.exit(0);
-	}
+		Object source = e.getSource();
+		
+		if(source==b1)
+		{
+			try
+			{
+		        
+		        String struname = t1.getText();
+		        char[] strpass = t2.getPassword();
+		      
+				//password = String.valueOf(strpass);
+				
+				if(struname.length()==0||strpass.length==0)//change from length() to length
+				{
+				JOptionPane.showMessageDialog(null,"Fields are empty");//pop up user prompt
+				}
+				else
+				{
+				stt = con.createStatement();
+				String username = "";
+			    String password = "";
+				
+				String sql = "SELECT * from User WHERE Username =? AND Password = ?";
+				ps = con.prepareStatement(sql);
+				//+ "'AND Password='"+ String.valueOf(t2.getPassword())+"'");
+				ps.setString(1, t1.getText());
+				ps.setString(2,String.valueOf(strpass));
+				rs = ps.executeQuery();
+				
+				//while(rs.next())
+				if(rs.next())
+				{
+					//username = rs.getString(1);
+					//password = rs.getString(2);
+					
+				//}
+				
+				//stt.close();
+				/*if(!username.equals(t1.getText()) || !password.equals(t2.getPassword()))
+				{
+					JOptionPane.showMessageDialog(null, "Invalid username or password", "Try Again", JOptionPane.ERROR_MESSAGE);
+					
+					t1.setText("");
+					t2.setText("");
+					t1.requestFocus(true);
+					
+				}*/
+				//if(username.equals(struname)){
+					//if(password.equals(strpass))
+				//}
+				//else
+				//{
+					JOptionPane.showMessageDialog(null, "Succesfully Login", "Success", JOptionPane.INFORMATION_MESSAGE);
+					
+					f.setVisible(false);
+					M = new Main();
+				}
+				
+				//}
+				else{
+                    JOptionPane.showMessageDialog(null, "Invalid username or password", "Try Again", JOptionPane.ERROR_MESSAGE);
+					
+					t1.setText("");
+					t2.setText("");
+					t1.requestFocus(true);
+				}
+	
+		}
+			}
+		
+		catch(SQLException ex)
+			{
+					System.out.println("Exception description " + ex);
+			}
+		finally
+		{
+			//Must be executed in reverse order of method calls
+			System.out.println("A must execution.");
+		}
+		}
+		
+		if(source==b2)
+		{
+			f.setVisible(false);
+			System.exit(0);
+		}
 	}
 
 }

@@ -22,7 +22,7 @@ public class Enquiry extends Connect implements ActionListener {
 	imgL.setBounds(0,340,500,200);
 	f=new JFrame("PNR-Enquiry");
 	f.getContentPane().setLayout(null);
-	f.getContentPane().setBackground(Color.cyan);
+	f.getContentPane().setBackground(Color.lightGray);
 	l1=new JLabel("PNR No");
 	l1.setBounds(50,50,60,30);
 	l2=new JLabel("PNR Details");
@@ -33,11 +33,11 @@ public class Enquiry extends Connect implements ActionListener {
 	li=new List();
 	li.setBounds(50,110,390,180);
 	b1=new JButton("Check");
-	b1.setBackground(Color.yellow);
+	b1.setBackground(Color.white);
 	b1.addActionListener(this);
 	b1.setBounds(70,300,100,30);
 	b2=new JButton("Back");
-	b2.setBackground(Color.yellow);
+	b2.setBackground(Color.white);
 	b2.addActionListener(this);
 	b2.setBounds(210,300,100,30);
 

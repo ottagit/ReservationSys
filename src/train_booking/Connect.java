@@ -9,8 +9,11 @@ public class Connect {
 	String password = "";
 	
 	
-	public Connection con;
-	public Statement stt;
+	public Connection con= null;
+	public Statement stt = null;
+	public PreparedStatement ps = null;
+	ResultSet rs = null ;
+	
 	public Connect()
 	{
 	try

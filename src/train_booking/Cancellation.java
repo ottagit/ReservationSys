@@ -20,7 +20,7 @@ public class Cancellation extends Connect implements ActionListener, ItemListene
 	{
 	f=new JFrame("Cancellation");
 	f.getContentPane().setLayout(null);
-	f.getContentPane().setBackground(Color.green);
+	f.getContentPane().setBackground(Color.orange);
 	l1=new JLabel("PNR No");
 	l1.setBounds(130,50,50,30);
 	l2=new JLabel("Train No");

@@ -15,9 +15,9 @@ public class Main implements ActionListener {
 	ImageIcon img;
 	Main()
 	{
-	img=new ImageIcon("logo_krc.png");
+	img=new ImageIcon("/home/otta/workspace/ReservationSys/src/Logo/Logoo.png");
 	imgL=new JLabel(img);
-	imgL.setBounds(0,0,1300,1000);
+	imgL.setBounds(150,150,600,300);
 	f=new JFrame("Main");
 	f.getContentPane().setLayout(null);
 	f.getContentPane().setBackground(Color.lightGray);
@@ -34,14 +34,14 @@ public class Main implements ActionListener {
 	b4.addActionListener(this);
 	b4.setBounds(580,490,210,60);
 
-	b1.setBackground(new Color(100,200,0));
-	b1.setForeground(new Color(255,255,255));
-	b2.setBackground(new Color(100,200,0));
-	b2.setForeground(new Color(255,255,255));
-	b3.setBackground(new Color(100,200,0));
-	b3.setForeground(new Color(255,255,255));
-	b4.setBackground(new Color(100,200,0));
-	b4.setForeground(new Color(255,255,255));
+	b1.setBackground(Color.blue);
+	b1.setForeground(Color.white);
+	b2.setBackground(Color.BLUE);
+	b2.setForeground(Color.white);
+	b3.setBackground(Color.blue);
+	b3.setForeground(Color.white);
+	b4.setBackground(Color.blue);
+	b4.setForeground(Color.white);
 
 	b1.setMnemonic('R');
 	b2.setMnemonic('P');
