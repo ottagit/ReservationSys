@@ -19,8 +19,8 @@ public class Cancellation extends Connect implements ActionListener, ItemListene
 	Cancellation()
 	{
 	f=new JFrame("Cancellation");
-	f.getContentPane().setLayout(null);
-	f.getContentPane().setBackground(Color.orange);
+	f.setLayout(null);
+	f.setBackground(Color.DARK_GRAY);
 	l1=new JLabel("PNR No");
 	l1.setBounds(130,50,50,30);
 	l2=new JLabel("Train No");
@@ -44,11 +44,11 @@ public class Cancellation extends Connect implements ActionListener, ItemListene
 	l11=new JLabel("Gender");
 	l11.setBounds(290,290,100,30);
 	b1=new JButton("Ok");
-	b1.setBackground(Color.yellow);
+	b1.setBackground(Color.GRAY);
 	b1.addActionListener(this);
 	b1.setBounds(50,480,100,30);
 	b2=new JButton("Back");
-	b2.setBackground(Color.yellow);
+	b2.setBackground(Color.GRAY);
 	b2.addActionListener(this);
 	b2.setBounds(200,480,100,30);
 
@@ -81,29 +81,29 @@ public class Cancellation extends Connect implements ActionListener, ItemListene
 	t7.setBounds(150,240,100,30);
 	li=new List(5,true);
 	li.setBounds(80,320,320,100);
-	f.getContentPane().add(l1);
-	f.getContentPane().add(l2);
-	f.getContentPane().add(l3);
-	f.getContentPane().add(l4);
-	f.getContentPane().add(l5);
-	f.getContentPane().add(l6);
-	f.getContentPane().add(l7);
-	f.getContentPane().add(l8);
-	f.getContentPane().add(l9);
-	f.getContentPane().add(l10);
-	f.getContentPane().add(l11);
-	f.getContentPane().add(b1);
-	f.getContentPane().add(b2);
-	f.getContentPane().add(h);
-	f.getContentPane().add(t1);
-	f.getContentPane().add(t2);
-	f.getContentPane().add(t3);
-	f.getContentPane().add(t4);
-	f.getContentPane().add(t5);
-	f.getContentPane().add(t6);
-	f.getContentPane().add(t7);
-	f.getContentPane().add(li);
-	f.setSize(1300,1000);
+	f.add(l1);
+	f.add(l2);
+	f.add(l3);
+	f.add(l4);
+	f.add(l5);
+	f.add(l6);
+	f.add(l7);
+	f.add(l8);
+	f.add(l9);
+	f.add(l10);
+	f.add(l11);
+	f.add(b1);
+	f.add(b2);
+	f.add(h);
+	f.add(t1);
+	f.add(t2);
+	f.add(t3);
+	f.add(t4);
+	f.add(t5);
+	f.add(t6);
+	f.add(t7);
+	f.add(li);
+	f.setSize(800,600);
 	f.setVisible(true);
 	start();
 	}
